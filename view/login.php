@@ -1,3 +1,7 @@
+<?php
+session_start();
+$user = isset($_COOKIE['email']) ? $_COOKIE['email'] : "";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercado Livre</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../css/login.css">
     <link rel="icon" type="image/x-icon"
         href="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/favicon.svg">
 </head>
@@ -25,11 +29,11 @@
         <section id="login" class="login">
             <div class="login-container">
                 <h2><span> Mercado Livre </span> Login</h2>
-                <form class="login-form">
-                    <input id="email" type="email" placeholder="Email" required><br>
-                    <input id="senha" type="password" placeholder="Senha" required><br>
+                <form action="../model/session.php" method="POST" class="login-form">
+                    <input name="email" type="email" placeholder="Email" value="<?php echo $user; ?>"><br>
+                    <input name="senha" type="password" placeholder="Senha" required><br>
                     <div class="checkbox-container">
-                        <input type="checkbox" id="lembre-me" name="lembre-me">
+                        <input type="checkbox" id="lembre-me" name="lembre_me">
                         <label for="lembre-me">Lembre-me</label>
                     </div>
 
@@ -53,9 +57,5 @@
                     alt="Icone do Facebook"></a>
         </div>
     </footer>
-
-    <script src="login.js"></script>
-
 </body>
-
 </html>
