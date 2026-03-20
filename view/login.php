@@ -8,15 +8,13 @@ $user = isset($_COOKIE['email']) ? $_COOKIE['email'] : "";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<<< HEAD:view/login.html
+
     <title>Login - Mercado Livre</title>
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/layout.css">
-    <link rel="stylesheet" href="/css/login.css">
-========
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/login.css">
     <title>Mercado Livre</title>
     <link rel="stylesheet" href="../css/login.css">
->>>>>>>> 40985a5d7647e710a4c860004de4c825a2753cce:view/login.php
     <link rel="icon" type="image/x-icon"
         href="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/favicon.svg">
 </head>
@@ -43,13 +41,11 @@ $user = isset($_COOKIE['email']) ? $_COOKIE['email'] : "";
                         <input type="checkbox" id="lembre-me" name="lembre_me">
                         <label for="lembre-me">Lembre-me</label>
                     </div>
-
                     <button type="submit">Cadastrar</button>
                 </form>
             </div>
         </section>
     </main>
-
     <footer>
         <p>© 2026 Mercado Livre. Todos os direitos reservados.</p>
         <div>

@@ -1,0 +1,125 @@
+/* ===========================
+   CARRINHO.CSS — ESTILO MERCADO LIVRE
+   =========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --ml-yellow:      #ffe600;
+    --ml-yellow-dark: #f0d800;
+    --ml-blue:        #3483fa;
+    --ml-blue-dark:   #2968c8;
+    --ml-green:       #00a650;
+    --bg-page:        #ebebeb;
+    --bg-white:       #ffffff;
+    --border:         #e6e6e6;
+    --text-dark:      #333333;
+    --text-muted:     #999999;
+    --shadow:         0 1px 2px rgba(0,0,0,0.12);
+    --shadow-md:      0 4px 12px rgba(0,0,0,0.10);
+    --radius:         6px;
+}
+
+/* ===========================
+   MAIN
+   =========================== */
+
+main {
+    flex: 1;
+    max-width: 900px;
+    width: 100%;
+    margin: 32px auto;
+    padding: 0 24px;
+}
+
+/* ===========================
+   TÍTULO
+   =========================== */
+
+main h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+/* ===========================
+   LISTA DO CARRINHO
+   =========================== */
+
+.carrinho {
+    background-color: var(--bg-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 8px 24px;
+    margin-bottom: 16px;
+}
+
+.carrinho ul {
+    list-style: none;
+}
+
+.carrinho-card {
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+}
+
+.carrinho-card:last-child {
+    border-bottom: none;
+}
+
+.carrinho-card li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-dark);
+    gap: 16px;
+    transition: color 0.15s ease;
+}
+
+.carrinho-card:hover li {
+    color: var(--ml-blue);
+}
+
+/* ===========================
+   TOTAL
+   =========================== */
+
+main h3 {
+    background-color: var(--bg-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+}
+
+/* ===========================
+   CARRINHO VAZIO
+   =========================== */
+
+main > p {
+    background-color: var(--bg-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 64px 24px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+main > p::before {
+    content: '🛒';
+    display: block;
+    font-size: 52px;
+    margin-bottom: 16px;
+}

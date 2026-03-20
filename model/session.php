@@ -6,23 +6,19 @@
     } else {
         $user = "";
     }
-
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $email = $_POST['email'];
         $senha = $_POST['senha'];
         $lembre_me = isset($_POST['lembre_me']);
 
-        // Aqui você pode adicionar a lógica de autenticação, como verificar o email e senha no banco de dados
-
+    $_SESSION['email'] = $email;
         if($lembre_me){
-            setcookie('email', $email, time() + (86400 * 30)); // Cookie válido por 30 dias
+            setcookie('email', $email, time() + (86400 * 30)); 
         } else {
-            setcookie('email', '', time() - 3600); // Exclui o cookie
+            setcookie('email', '', time() - 3600);
         }
-
-        // Redirecionar para a página principal ou dashboard após o login bem-sucedido
-        header('Location: dashboard.php');
-        exit();
+        header('Location: ../view/dashboard.php');
+    exit();
     }
 
 ?>
