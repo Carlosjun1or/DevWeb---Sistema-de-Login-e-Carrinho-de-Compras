@@ -53,7 +53,7 @@ $user = $_SESSION['email'];
             <div class='carrinho'>
                 <ul>
                     <?php foreach ($carrinho as $index => $item):
-                        $total += $item['preco']
+                        $total += $item['preco']*$item['qtd'];
                             ?>
                         <!-- exibe cada item -->
                         <div class='carrinho-card'>
@@ -62,6 +62,7 @@ $user = $_SESSION['email'];
 
                                 <?php echo $item['produto']; ?>
                                 - R$ <?php echo $item['preco']; ?>
+                                <P>Quantidade: <?php echo $item['qtd']; ?></P>
                                 <!-- remover item -->
                                 <form action="../model/remover.php" method="POST">
                                     <input type="hidden" name="index" value="<?php echo $index; ?>">
