@@ -29,6 +29,19 @@ img.logo {
     align-items: center;
 }
 
+/* USER */
+.user {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.user a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
 /* FOOTER */
 footer {
     text-align: center;

@@ -14,7 +14,6 @@ $user = isset($_COOKIE['email']) ? $_COOKIE['email'] : "";
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/login.css">
     <title>Mercado Livre</title>
-    <link rel="stylesheet" href="../css/login.css">
     <link rel="icon" type="image/x-icon"
         href="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/favicon.svg">
 </head>

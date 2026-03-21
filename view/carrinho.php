@@ -6,6 +6,8 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 $user = $_SESSION['email'];
+$carrinho = $_SESSION['carrinho'] ?? [];
+$total = 0;
 ?>
 
 <!DOCTYPE html>
@@ -26,59 +28,90 @@ $user = $_SESSION['email'];
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="dashboard.php"><img
-                        src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/favicon.svg"
-                        alt="Mercado Livre"></a>
+                <a href="dashboard.php">
+                    <img
+                        src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/favicon.svg">
+                </a>
             </div>
+
             <div class="user">
-                <?php echo "olá! " . $user; ?>
+                <?php echo "Olá, " . $user; ?>
                 <a href="../model/logout.php">Sair</a>
-                <a href="carrinho.php">Carrinho</a>
+                <a href="dashboard.php">Produtos</a>
             </div>
         </nav>
     </header>
 
+
     <main>
-        <?php
 
-        // verifica se o carrinho existe
-        $carrinho = isset($_SESSION['carrinho']) ? $_SESSION['carrinho'] : [];
-        $total = 0;
-        ?>
+        <h1>Seu Carrinho</h1>
 
-        <h1>Seu Carrinho </h1>
         <?php if (empty($carrinho)): ?>
-            <p>Carrinho vazio</p>
-        <?php else: ?>
-            <div class='carrinho'>
-                <ul>
-                    <?php foreach ($carrinho as $index => $item):
-                        $total += $item['preco']*$item['qtd'];
-                            ?>
-                        <!-- exibe cada item -->
-                        <div class='carrinho-card'>
-                            <li>
-                                <img src="<?php echo $item['imagem']; ?>" width="100">
 
-                                <?php echo $item['produto']; ?>
-                                - R$ <?php echo $item['preco']; ?>
-                                <P>Quantidade: <?php echo $item['qtd']; ?></P>
-                                <!-- remover item -->
-                                <form action="../model/remover.php" method="POST">
-                                    <input type="hidden" name="index" value="<?php echo $index; ?>">
-                                    <button type="submit">Remover</button>
+            <p>Carrinho vazio</p>
+
+        <?php else: ?>
+
+            <div class="carrinho">
+
+                <?php foreach ($carrinho as $index => $item):
+
+                    $subtotal = $item['preco'] * $item['qtd'];
+                    $total += $subtotal;
+                    ?>
+
+                    <div class="carrinho-card">
+
+                        <img src="<?= $item['imagem']; ?>" width="120">
+
+                        <h3><?= $item['produto']; ?></h3>
+
+                        <p>Preço: R$ <?= number_format($item['preco'], 2, ',', '.'); ?></p>
+
+                        <div class="controle">
+
+                            <div class="quantidade">
+
+                                <!-- DIMINUIR -->
+                                <form action="../model/atualizar_qtd.php" method="POST">
+                                    <input type="hidden" name="index" value="<?= $index; ?>">
+                                    <input type="hidden" name="acao" value="diminuir">
+                                    <button type="submit">-</button>
                                 </form>
-                            </li>
+
+                                <span><?= $item['qtd']; ?></span>
+
+                                <!-- AUMENTAR -->
+                                <form action="../model/atualizar_qtd.php" method="POST">
+                                    <input type="hidden" name="index" value="<?= $index; ?>">
+                                    <input type="hidden" name="acao" value="aumentar">
+                                    <button type="submit">+</button>
+                                </form>
+
+                            </div>
+
+                            <!-- REMOVER TOTAL -->
+                            <form action="../model/remover.php" method="POST">
+                                <input type="hidden" name="index" value="<?= $index; ?>">
+                                <button class="btn-remover">Remover</button>
+                            </form>
+
                         </div>
-                    <?php endforeach; ?>
-                </ul>
+
+                        <p><strong>Subtotal: R$ <?= number_format($subtotal, 2, ',', '.'); ?></strong></p>
+                    </div>
+
+                <?php endforeach; ?>
+
             </div>
 
-            <h3>Total: R$ <?php echo $total; ?></h3>
+            <h2>Total: R$ <?= number_format($total, 2, ',', '.'); ?></h2>
 
         <?php endif; ?>
 
     </main>
+
 
     <footer>
         <p>© 2026 Mercado Livre. Todos os direitos reservados.</p>
