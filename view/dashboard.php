@@ -48,7 +48,7 @@ $user = $_SESSION['email'];
                     <button class="arrow left">&lt;</button>
 
                     <div class="produtos">
-
+                    <!-- produtos -->
                         <div class="card">
                             <img src="https://http2.mlstatic.com/D_NQ_NP_2X_769690-MLB75370639571_032024-F-kit-6-pares-meias-lupo-cano-medio-esportivas-academia.webp">
                             <form action="../model/carrinho.php" method="POST">
@@ -167,7 +167,7 @@ $user = $_SESSION['email'];
                     alt="Icone do Facebook"></a>
         </div>
     </footer>
-
+   <!-- script para o carrossel-->
     <script>
         const leftArrow = document.querySelector('.arrow.left');
         const rightArrow = document.querySelector('.arrow.right');

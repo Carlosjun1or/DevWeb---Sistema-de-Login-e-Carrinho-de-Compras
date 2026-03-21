@@ -94,29 +94,6 @@ $user = $_SESSION['email'];
                     alt="Icone do Facebook"></a>
         </div>
     </footer>
-
-    <script>
-        const leftArrow = document.querySelector('.arrow.left');
-        const rightArrow = document.querySelector('.arrow.right');
-        const produtos = document.querySelector('.produtos');
-
-        function getCardWidth() {
-            const card = document.querySelector('.card');
-            return card.offsetWidth + 20; // gap
-        }
-
-        function scrollRight() {
-            produtos.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
-        }
-
-        leftArrow.addEventListener('click', () => {
-            produtos.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
-        });
-
-        rightArrow.addEventListener('click', scrollRight);
-
-        setInterval(scrollRight, 3000);
-    </script>
 </body>
 
 </html>
