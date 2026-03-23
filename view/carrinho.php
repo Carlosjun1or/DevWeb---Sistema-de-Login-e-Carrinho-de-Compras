@@ -108,6 +108,10 @@ $total = 0;
 
             <h2>Total: R$ <?= number_format($total, 2, ',', '.'); ?></h2>
 
+            <form action="../model/logout.php" method="POST">
+                <button class="finalizar">Finalizar Pedido</button>
+            </form>
+
         <?php endif; ?>
 
     </main>
