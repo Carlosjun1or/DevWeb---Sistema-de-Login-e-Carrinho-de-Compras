@@ -32,7 +32,7 @@ $user = isset($_COOKIE['email']) ? $_COOKIE['email'] : "";
     <main>
         <section id="login" class="login">
             <div class="login-container">
-                <h2><span> Mercado Livre </span> Login</h2>
+                <h2><span> Mercado Livre </span></h2><h2> Login</h2>
                 <form action="../model/session.php" method="POST" class="login-form">
                     <input name="email" type="email" placeholder="Email" value="<?php echo $user; ?>"><br>
                     <input name="senha" type="password" placeholder="Senha" required><br>

@@ -6,17 +6,6 @@
     background-color: lightgray;
 }
 
-.login h2 {
-    color: black;
-    font-size: 45px;
-    font-weight: 700;
-    margin-bottom: 40px;
-}
-
-.login span{
-    color: #ffc72c;  
-}
-
 .login-container {
     justify-content: center;
     align-items: center;
@@ -28,6 +17,18 @@
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.login h2 {
+    color: black;
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.login span{
+    color: #ffc72c;  
+}
+
 
 .login-form {
     display: flex;
@@ -90,4 +91,111 @@
 .login-form button:hover {
     opacity: 0.8;
 
+}
+
+/* RESPONSIVIDADE para 578px até 1200px */
+@media (min-width: 578px) and (max-width: 1200px) {
+    /* LOGIN */
+    .login {
+        height: 750px;
+        padding: 60px 30px;
+    }
+
+    .login h2 {
+        font-size: 32px;
+    }
+
+    .login-container {
+        width: 60%;
+        padding: 40px;
+    }
+
+    .login-form {
+        min-width: 260px;
+    }
+
+    .login-form input {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .login-form button {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .login-container p {
+        font-size: 14px;
+    }
+}
+
+/* RESPONSIVIDADE para 1201px até 1600px */
+@media (min-width: 1201px) and (max-width: 1600px) {
+    /* LOGIN */
+    .login {
+        height: 750px;
+        padding: 60px 30px;
+    }
+
+    .login h2 {
+        font-size: 32px;
+    }
+
+    .login-container {
+        width: 30%;
+        padding: 40px;
+    }
+
+    .login-form {
+        min-width: 260px;
+    }
+
+    .login-form input {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .login-form button {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .login-container p {
+        font-size: 14px;
+    }
+}
+
+/* RESPONSIVIDADE para até 577px */
+@media (max-width: 577px) {
+    /* LOGIN */
+    .login {
+        padding: 60px 30px;
+    }
+
+    .login h2 {
+        font-size: 32px;
+    }
+
+    .login-container {
+        width: 95%;
+        padding: 40px;
+    }
+
+    .login-form {
+        min-width: 100px;
+    }
+
+    .login-form input {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .login-form button {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .login-container p {
+        font-size: 14px;
+    }
 }
