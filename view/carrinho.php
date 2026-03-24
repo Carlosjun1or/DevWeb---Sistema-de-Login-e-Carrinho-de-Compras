@@ -45,77 +45,95 @@ $total = 0;
 
     <main>
 
-        <h1>Seu Carrinho</h1>
+        <section class="carrinho-container">
 
-        <?php if (empty($carrinho)): ?>
+            <h1>Seu Carrinho</h1>
 
-            <p>Carrinho vazio</p>
+            <?php if (isset($_SESSION['msg'])): ?>
+                <div class="mensagem-sucesso">
+                    <?= $_SESSION['msg']; ?>
+                </div>
+                <?php unset($_SESSION['msg']); ?>
+            <?php endif; ?>
 
-        <?php else: ?>
+            <?php if (empty($carrinho)): ?>
 
-            <div class="carrinho">
+                <div class="carrinho-vazio">
+                    <span class="icone">🛒</span>
+                    <h2>Seu carrinho está vazio</h2>
+                    <p>Adicione produtos para começar sua compra</p>
 
-                <?php foreach ($carrinho as $index => $item):
+                    <a href="dashboard.php" class="btn-voltar">
+                        Ver produtos
+                    </a>
+                </div>
 
-                    $subtotal = $item['preco'] * $item['qtd'];
-                    $total += $subtotal;
-                    ?>
+            <?php else: ?>
 
-                    <div class="carrinho-card">
+                <div class="carrinho">
 
-                        <img src="<?= $item['imagem']; ?>" width="120">
+                    <?php foreach ($carrinho as $index => $item):
 
-                        <h3><?= $item['produto']; ?></h3>
+                        $subtotal = $item['preco'] * $item['qtd'];
+                        $total += $subtotal;
+                        ?>
 
-                        <p>Preço: R$ <?= number_format($item['preco'], 2, ',', '.'); ?></p>
+                        <div class="carrinho-card">
 
-                        <div class="controle">
+                            <img src="<?= $item['imagem']; ?>">
 
-                            <div class="quantidade">
+                            <h3><?= $item['produto']; ?></h3>
 
-                                <!-- DIMINUIR -->
-                                <form action="../model/atualizar_qtd.php" method="POST">
+                            <p>Preço: R$ <?= number_format($item['preco'], 2, ',', '.'); ?></p>
+
+                            <div class="controle">
+
+                                <div class="quantidade">
+
+                                    <form action="../model/atualizar_qtd.php" method="POST">
+                                        <input type="hidden" name="index" value="<?= $index; ?>">
+                                        <input type="hidden" name="acao" value="diminuir">
+                                        <button type="submit">-</button>
+                                    </form>
+
+                                    <span><?= $item['qtd']; ?></span>
+
+                                    <form action="../model/atualizar_qtd.php" method="POST">
+                                        <input type="hidden" name="index" value="<?= $index; ?>">
+                                        <input type="hidden" name="acao" value="aumentar">
+                                        <button type="submit">+</button>
+                                    </form>
+
+                                </div>
+
+                                <form action="../model/remover.php" method="POST">
                                     <input type="hidden" name="index" value="<?= $index; ?>">
-                                    <input type="hidden" name="acao" value="diminuir">
-                                    <button type="submit">-</button>
-                                </form>
-
-                                <span><?= $item['qtd']; ?></span>
-
-                                <!-- AUMENTAR -->
-                                <form action="../model/atualizar_qtd.php" method="POST">
-                                    <input type="hidden" name="index" value="<?= $index; ?>">
-                                    <input type="hidden" name="acao" value="aumentar">
-                                    <button type="submit">+</button>
+                                    <button class="btn-remover">Remover</button>
                                 </form>
 
                             </div>
 
-                            <!-- REMOVER TOTAL -->
-                            <form action="../model/remover.php" method="POST">
-                                <input type="hidden" name="index" value="<?= $index; ?>">
-                                <button class="btn-remover">Remover</button>
-                            </form>
-
+                            <p><strong>Subtotal: R$ <?= number_format($subtotal, 2, ',', '.'); ?></strong></p>
                         </div>
 
-                        <p><strong>Subtotal: R$ <?= number_format($subtotal, 2, ',', '.'); ?></strong></p>
-                    </div>
+                    <?php endforeach; ?>
 
-                <?php endforeach; ?>
+                </div>
 
-            </div>
+                <div class="caixa-total">
+                    <span>Total:</span>
+                    <strong>R$ <?= number_format($total, 2, ',', '.'); ?></strong>
+                </div>
 
-            <h2>Total: R$ <?= number_format($total, 2, ',', '.'); ?></h2>
+                <form action="../model/finalizar_pedido.php" method="POST">
+                    <button class="finalizar">Finalizar Pedido</button>
+                </form>
 
-            <form action="../model/logout.php" method="POST">
-                <button class="finalizar">Finalizar Pedido</button>
-            </form>
+            <?php endif; ?>
 
-        <?php endif; ?>
+        </section>
 
     </main>
-
 
     <footer>
         <p>© 2026 Mercado Livre. Todos os direitos reservados.</p>
@@ -131,6 +149,29 @@ $total = 0;
                     alt="Icone do Facebook"></a>
         </div>
     </footer>
+
+    <?php if (isset($_SESSION['redirect_login'])): ?>
+        <script>
+            let tempo = 3;
+
+            const mensagem = document.querySelector(".mensagem-sucesso");
+
+            const contador = setInterval(() => {
+                if (tempo > 0) {
+                    mensagem.innerHTML = `Pedido efetuado com sucesso! 🎉 <br> Saindo em ${tempo}...`;
+                    tempo--;
+                } else {
+                    clearInterval(contador);
+                    window.location.href = "login.php";
+                }
+            }, 1000);
+        </script>
+        <?php
+        unset($_SESSION['redirect_login']);
+        unset($_SESSION['msg']);
+    endif;
+    ?>
+
 </body>
 
 </html>
