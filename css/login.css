@@ -1,19 +1,19 @@
-/* LOGIN */
+/* ===========================
+   LOGIN
+   =========================== */
+
 .login {
-    height: 750px;
-    padding: 100px;
+    padding: 100px 20px; /* 🔥 evita overflow lateral */
     text-align: center;
-    background-color: lightgray;
+    min-height: calc(100vh - 180px);
 }
 
 .login-container {
-    justify-content: center;
-    align-items: center;
     margin: 0 auto;
     background-color: white;
     padding: 50px;
-    max-width: 800px;
-    width: 30%;
+    max-width: 500px; /* 🔥 controla melhor */
+    width: 100%; /* 🔥 importante */
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -22,27 +22,25 @@
     color: black;
     font-size: 45px;
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
-.login span{
-    color: #ffc72c;  
+.login span {
+    color: #ffc72c;
 }
 
 
+/* FORM */
 .login-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    flex: 1;
-    min-width: 300px;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-.login-form input,
-.login-form textarea {
+.login-form input {
     width: 100%;
-    padding: 15px 15px;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 14px;
@@ -55,50 +53,49 @@
     padding: 0;
 }
 
-.login-form label {
-    font-size: 14px;
-    color: #333;
-    margin-left: 5px;
+.login-form input:focus {
+    border-color: #007bff;
 }
 
 .checkbox-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    gap: 5px;
     margin-bottom: 10px;
 }
 
-.login-form input:focus,
-.login-form textarea:focus {
-    border-color: #007bff;
+.login-form label {
+    font-size: 14px;
+    color: #333;
 }
 
 .login-form button {
-    cursor: pointer;
-    display: inline-block;
     width: 100%;
-    background: #007bff;
-    padding: 12px 25px;
+    background: #3483FA;
+    padding: 12px;
     border: none;
     border-radius: 6px;
     color: white;
     font-weight: 600;
     font-size: 16px;
-    box-shadow: 1px 1px 6px black;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 .login-form button:hover {
-    opacity: 0.8;
-
+    background: #2968c8;
 }
 
-/* RESPONSIVIDADE para 578px até 1200px */
-@media (min-width: 578px) and (max-width: 1200px) {
-    /* LOGIN */
+
+/* ===========================
+   RESPONSIVO
+   =========================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+
     .login {
-        height: 750px;
-        padding: 60px 30px;
+        padding: 60px 20px;
     }
 
     .login h2 {
@@ -106,83 +103,43 @@
     }
 
     .login-container {
-        width: 60%;
+        max-width: 450px;
         padding: 40px;
     }
+}
 
-    .login-form {
-        min-width: 260px;
+
+/* TABLET MENOR */
+@media (max-width: 768px) {
+
+    .login-container {
+        max-width: 400px;
     }
 
     .login-form input {
         padding: 12px;
-        font-size: 14px;
     }
 
     .login-form button {
-        padding: 12px;
         font-size: 15px;
-    }
-
-    .login-container p {
-        font-size: 14px;
     }
 }
 
-/* RESPONSIVIDADE para 1201px até 1600px */
-@media (min-width: 1201px) and (max-width: 1600px) {
-    /* LOGIN */
-    .login {
-        height: 750px;
-        padding: 60px 30px;
-    }
 
-    .login h2 {
-        font-size: 32px;
+/* MOBILE */
+@media (max-width: 576px) {
+
+    .login {
+        padding: 40px 10px;
     }
 
     .login-container {
-        width: 30%;
-        padding: 40px;
-    }
-
-    .login-form {
-        min-width: 260px;
-    }
-
-    .login-form input {
-        padding: 12px;
-        font-size: 14px;
-    }
-
-    .login-form button {
-        padding: 12px;
-        font-size: 15px;
-    }
-
-    .login-container p {
-        font-size: 14px;
-    }
-}
-
-/* RESPONSIVIDADE para até 577px */
-@media (max-width: 577px) {
-    /* LOGIN */
-    .login {
-        padding: 60px 30px;
+        max-width: 100%;
+        padding: 30px 20px;
     }
 
     .login h2 {
-        font-size: 32px;
-    }
-
-    .login-container {
-        width: 95%;
-        padding: 40px;
-    }
-
-    .login-form {
-        min-width: 100px;
+        font-size: 26px;
     }
 
     .login-form input {
@@ -192,10 +149,15 @@
 
     .login-form button {
         padding: 10px;
-        font-size: 15px;
-    }
-
-    .login-container p {
         font-size: 14px;
+    }
+}
+
+
+/* MOBILE PEQUENO */
+@media (max-width: 400px) {
+
+    .login h2 {
+        font-size: 22px;
     }
 }
