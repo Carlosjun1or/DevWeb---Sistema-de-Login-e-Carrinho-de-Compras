@@ -1,8 +1,10 @@
-/* DASHBOARD */
+/* ===========================
+   DASHBOARD
+   =========================== */
+
 .dashboard {
     padding: 80px;
-    background-color: lightgray;
-    min-height: 100vh;
+    min-height: calc(100vh - 180px); /* 🔥 substitui height */
 }
 
 .dashboard-container {
@@ -22,7 +24,11 @@
     margin-bottom: 30px;
 }
 
-/* CAROUSEL */
+
+/* ===========================
+   CAROUSEL
+   =========================== */
+
 .carousel {
     display: flex;
     align-items: center;
@@ -38,32 +44,49 @@
     cursor: pointer;
 }
 
-/* PRODUTOS */
+.arrow:hover {
+    background: #2968c8;
+}
+
+
+/* ===========================
+   PRODUTOS
+   =========================== */
+
 .produtos {
     display: flex;
     gap: 20px;
-    overflow-x: hidden;
+    overflow-x: auto; /* melhor pra mobile */
+    scroll-behavior: smooth;
     flex: 1;
+    overflow-x: hidden; /* esconde barra de rolagem */
 }
 
-/* CARD */
+
+/* ===========================
+   CARD
+   =========================== */
+
 .card {
     flex: 0 0 calc(25% - 15px);
-    background: white;
     padding: 15px;
     border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     background-color: lightgray;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .card img {
     width: 100%;
     height: 180px;
-    object-fit: contain; /* mantém proporção */
+    object-fit: contain;
     margin-bottom: 10px;
 }
 
-/* BOTÃO COMPRAR */
+
+/* ===========================
+   BOTÃO COMPRAR
+   =========================== */
+
 .btn-comprar {
     margin-top: 10px;
     width: 100%;
@@ -76,20 +99,31 @@
     cursor: pointer;
 }
 
-/* CONTROLE */
+.btn-comprar:hover {
+    background: #2968c8;
+}
+
+
+/* ===========================
+   CONTROLE
+   =========================== */
+
 .controle {
     margin-top: 10px;
     display: flex;
     justify-content: center;
 }
 
-/* QUANTIDADE */
+
+/* ===========================
+   QUANTIDADE
+   =========================== */
+
 .quantidade {
-    width: fit-content; /* tamanho automático */
+    width: fit-content;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 15px;
 
     background: white;
@@ -98,7 +132,6 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* BOTÕES */
 .quantidade button {
     width: 30px;
     height: 30px;
@@ -117,10 +150,133 @@
     cursor: pointer;
 }
 
-/* NUMERO */
+.quantidade button:hover {
+    background: #2968c8;
+}
+
 .quantidade span {
     font-size: 28px;
     font-weight: bold;
     min-width: 40px;
     text-align: center;
+}
+
+
+/* ===========================
+   RESPONSIVO
+   =========================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+    .dashboard {
+        padding: 50px 30px;
+    }
+
+    .dashboard-container {
+        padding: 30px;
+    }
+
+    .dashboard-container h2 {
+        font-size: 30px;
+    }
+
+    .card {
+        flex: 0 0 calc(33.33% - 15px);
+    }
+
+    .card img {
+        height: 160px;
+    }
+}
+
+
+/* TABLET MENOR */
+@media (max-width: 768px) {
+
+    .dashboard {
+        padding: 40px 20px;
+    }
+
+    .dashboard-container {
+        padding: 25px;
+    }
+
+    .dashboard-container h2 {
+        font-size: 26px;
+    }
+
+    .card {
+        flex: 0 0 calc(50% - 10px);
+    }
+
+    .card img {
+        height: 140px;
+    }
+
+    .quantidade span {
+        font-size: 24px;
+    }
+}
+
+
+/* MOBILE */
+@media (max-width: 576px) {
+
+    .dashboard {
+        padding: 20px 10px;
+    }
+
+    .dashboard-container {
+        padding: 20px 15px;
+        border-radius: 10px;
+    }
+
+    .dashboard-container h2 {
+        font-size: 22px;
+    }
+
+    .card {
+        flex: 0 0 80%; /* 🔥 mostra 1 card + preview do próximo */
+    }
+
+    .card img {
+        height: 130px;
+    }
+
+    .btn-comprar {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .quantidade button {
+        width: 26px;
+        height: 26px;
+        font-size: 18px;
+    }
+
+    .quantidade span {
+        font-size: 20px;
+    }
+}
+
+
+/* MOBILE PEQUENO */
+@media (max-width: 400px) {
+
+    .dashboard-container h2 {
+        font-size: 20px;
+    }
+
+    .card img {
+        height: 110px;
+    }
+
+    .btn-comprar {
+        font-size: 13px;
+    }
+
+    .quantidade span {
+        font-size: 18px;
+    }
 }
