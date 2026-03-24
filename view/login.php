@@ -34,10 +34,10 @@ $user = isset($_COOKIE['email']) ? $_COOKIE['email'] : "";
             <div class="login-container">
                 <h2><span> Mercado Livre </span></h2><h2> Login</h2>
                 <form action="../model/session.php" method="POST" class="login-form">
-                    <input name="email" type="email" placeholder="Email" value="<?php echo $user; ?>"><br>
+                    <input name="email" type="email" placeholder="Email" value="<?= htmlspecialchars($user) ?>"><br>
                     <input name="senha" type="password" placeholder="Senha" required><br>
                     <div class="checkbox-container">
-                        <input type="checkbox" id="lembre-me" name="lembre_me">
+                        <input type="checkbox" id="lembre-me" name="lembre_me" <?= $user !== '' ? 'checked' : '' ?>>
                         <label for="lembre-me">Lembre-me</label>
                     </div>
                     <button type="submit">Cadastrar</button>

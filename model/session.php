@@ -13,9 +13,9 @@
 
     $_SESSION['email'] = $email;
         if($lembre_me){
-            setcookie('email', $email, time() + (86400 * 30)); 
+            setcookie('email', $email, time() + (86400 * 30),'/'); 
         } else {
-            setcookie('email', '', time() - 3600);
+            setcookie('email', '', time() - 3600, '/');
         }
         header('Location: ../view/dashboard.php');
     exit();
