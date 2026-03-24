@@ -8,7 +8,7 @@ Sistema web desenvolvido com foco em simular um ambiente de e-commerce, incluind
 
 Este projeto foi desenvolvido para praticar a construção de aplicações web com integração entre **frontend e backend**, simulando funcionalidades reais de um sistema de compras online.
 
-A aplicação permite que usuários realizem login, naveguem por produtos e gerenciem um carrinho de compras com persistência durante a sessão.
+A aplicação permite que usuários realizem login, naveguem por produtos, adicionem e gerenciem os produtos no carrinho de compras com persistência durante a sessão e finalizem pedidos com feedback ao usuário.
 
 ---
 
@@ -31,6 +31,11 @@ A aplicação permite que usuários realizem login, naveguem por produtos e gere
 - Cálculo automático do total
 - Persistência dos dados na sessão
 
+### ✅ Finalização de Pedido
+- Limpeza do carrinho após finalização
+- Exibição de mensagem de sucesso
+- Redirecionamento automático para login
+
 ---
 
 ## 🔐 Controle de Sessão
@@ -43,12 +48,21 @@ O sistema utiliza sessões PHP para:
 
 ---
 
+## 🎨 Interface
+
+- Layout inspirado em plataformas de e-commerce
+- Design responsivo (desktop, tablet e mobile)
+- Feedback visual para ações do usuário
+- Estrutura modular de CSS (global + páginas)
+
+---
+
 ## 🧪 Tecnologias Utilizadas
 
-- **PHP** → Backend e controle de sessão  
-- **HTML5** → Estrutura das páginas  
-- **CSS3** → Estilização da interface  
-- **JavaScript** → Interações no frontend  
+- `PHP` → Backend e controle de sessão  
+- `HTML5` → Estrutura das páginas  
+- `CSS3` → Estilização da interface  
+- `JavaScript` → Interações no frontend  
 
 ---
 
@@ -57,26 +71,51 @@ O sistema utiliza sessões PHP para:
 ```
 /
 ├── css/
-│   ├── global.css
-│   ├── layout.css
-│   ├── login.css
-│   ├── dashboard.css
-│   └── carinho.css
+│ ├── global.css
+│ ├── layout.css
+│ ├── login.css
+│ ├── dashboard.css
+│ └── carrinho.css
 │
 ├── model/
-│   ├── session.php
-│   ├── carrinho.php
-│   ├── remover.php
-│   ├── atualizar_qtd.php
-│   └── logout.php
+│ ├── session.php
+│ ├── carrinho.php
+│ ├── remover.php
+│ ├── atualizar_qtd.php
+│ ├── finalizar_pedido.php
+│ └── logout.php
 │
 ├── view/
-│   ├── login.php
-│   ├── dashboard.php
-│   └── carrinho.php
+│ ├── login.php
+│ ├── dashboard.php
+│ └── carrinho.php
 │
 └── README.md
 
 ```
 
+---
+
+## 📈 Melhorias Futuras 
+
+- Integração com banco de dados (MySQL)
+- Cadastro de usuários
+- Sistema de pedidos persistente
+- API REST para integração frontend/backend
+- Pagamento simulado
+
+---
+
+## 👨‍💻 Autores
+
+| Nome |
+|---|
+| Carolina Ribeiro |
+| Carlos Roberto |
+
+---
+
+## 📄 Licença
+
+Este projeto é de uso educacional feito para uma atividade e livre para estudos.
 
